@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagCalculoComponent implements OnInit {
 
+  medida1 = "Kelvin";
+  medida2 = "Celsius";
+
   constructor() { }
 
   ngOnInit(): void {
