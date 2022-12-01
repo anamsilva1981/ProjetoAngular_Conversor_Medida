@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-calculadora',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculadoraComponent implements OnInit {
 
+  @Input() medida = "";
+  formularioMedida = new FormGroup({
+    medidaInput: new FormControl('')
+  })
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -5,13 +5,62 @@
         </div>
         <div class="col-12">
             <h2>Conversor de Temperatura</h2>
-            <button mat-raised-button color="primary" *ngFor = "let temperatura of temperaturas" class="btn-margin">{{temperatura}}</button>
-            
-            <h2>Conversor de Peso</h2>
-            <button mat-raised-button color="primary" *ngFor = "let peso of pesos" class="btn-margin">{{peso}}</button>
-            
-            <h2>Conversor de Medidas</h2>
-            <button mat-raised-button color="primary" *ngFor = "let medida of medidas" class="btn-margin">{{medida}}</button>
+            <mat-form-field class="btn-margin" appearance="fill">
+                <mat-label>Converter de: </mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let temperatura of temperaturas; let i=index" value="index">{{temperatura}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="btn-margin" appearance="fill">
+                <mat-label>Converter para: </mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let temperatura of temperaturas; let i=index" value="index">{{temperatura}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Converter Temperatura</button>
+
         </div>
-    </div>
-</div>
+        <div class="COL-12">
+
+            <h2>Conversor de Peso</h2>
+
+            <mat-form-field class="btn-margin" appearance="fill">
+                <mat-label>Converter de: </mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let peso of pesos; let i=index" value="index">{{peso}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="btn-margin" appearance="fill">
+                <mat-label>Converter para: </mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let peso of pesos; let i=index" value="index">{{peso}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="primary">Converter Peso</button>
+
+
+            <div class="COL-12">
+
+                <h2>Conversor de Medida</h2>
+
+                <mat-form-field class="btn-margin" appearance="fill">
+                    <mat-label>Converter de: </mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let medida of medidas; let i=index" value="index">{{medida}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="btn-margin" appearance="fill">
+                    <mat-label>Converter para: </mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let medida of medidas; let i=index" value="index">{{medida}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button color="primary">Converter Medida</button>
+
+            </div>
+        </div>
+

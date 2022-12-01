@@ -9,6 +9,10 @@ import { CalculadoraComponent } from './calculadora/calculadora/calculadora.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatButtonModule} from '@angular/material/button';
 import { PagCalculoComponent } from './calculadora/pag-calculo/pag-calculo.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -23,7 +27,10 @@ import { PagCalculoComponent } from './calculadora/pag-calculo/pag-calculo.compo
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

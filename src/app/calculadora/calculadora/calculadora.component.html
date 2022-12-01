@@ -1,1 +1,10 @@
-<p>calculadora works!</p>
+
+<div class="bg-color">
+    <h3>A Medida a Ser Convertida: {{medida}}</h3>
+    <form [formGroup]="formularioMedida"></form>
+    <mat-form-field appearance="fill">
+        <input matInput formControlName="medida">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Converter</button>
+</div>
