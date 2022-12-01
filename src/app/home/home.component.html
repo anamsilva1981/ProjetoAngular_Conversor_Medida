@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Escolha Uma Medida Para Converter</h1>
+        </div>
+        <div class="col-12">
+            <h2>Conversor de Temperatura</h2>
+            <button mat-raised-button color="primary" *ngFor = "let temperatura of temperaturas" class="btn-margin">{{temperatura}}</button>
+            
+            <h2>Conversor de Peso</h2>
+            <button mat-raised-button color="primary" *ngFor = "let peso of pesos" class="btn-margin">{{peso}}</button>
+            
+            <h2>Conversor de Medidas</h2>
+            <button mat-raised-button color="primary" *ngFor = "let medida of medidas" class="btn-margin">{{medida}}</button>
+        </div>
+    </div>
+</div>
