@@ -1,11 +1,11 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <h1>Você está vendo a conversão de X e Y</h1>
+        <div class="col-12 title-spacing">
+            <h1>Você está vendo a conversão de {{medida1}} e {{medida2}}</h1>
         </div>
         <div class="col-6">
-            <app-calculadora [medida]="medida1"></app-calculadora>
+            <app-calculadora [medida]="medida1" (valorParaConverter)="valorConvertido($event)"></app-calculadora>
         </div>
 
         <div class="col-6">

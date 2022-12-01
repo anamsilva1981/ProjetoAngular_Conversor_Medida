@@ -7,13 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  temperaturas = ["Celsius", "Fahrenheit", "Kelvin"]
-  pesos = ["Grama", "Libra", "Onça", "Kilo "]
-  medidas = ["Metro ","Polegadas","Pé","Jardas","Cm"]
+  temperaturas = ["Celsius", "Fahrenheit", "Kelvin"];
+  pesos = ["Grama", "Libra", "Onça", "Kilo "];
+  medidas = ["Metro ","Polegadas","Pé","Jardas","Cm"];
+
 
   constructor() { }
 
   ngOnInit(): void {
+    this.temperaturas.sort();
+    this.pesos.sort();
+    this.medidas.sort();
   }
 
 }

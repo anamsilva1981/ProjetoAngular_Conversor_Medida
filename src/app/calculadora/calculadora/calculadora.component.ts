@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -12,10 +12,15 @@ export class CalculadoraComponent implements OnInit {
   formularioMedida = new FormGroup({
     medidaInput: new FormControl('')
   })
-  
+
+  @Output() valorParaConverter = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  converter(medidaDoInput: string){
+    this.valorParaConverter.emit(medidaDoInput);
   }
 
 }

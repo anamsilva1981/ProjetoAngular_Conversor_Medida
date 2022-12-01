@@ -1,10 +1,11 @@
 
 <div class="bg-color">
     <h3>A Medida a Ser Convertida: {{medida}}</h3>
-    <form [formGroup]="formularioMedida"></form>
-    <mat-form-field appearance="fill">
-        <input matInput formControlName="medida">
-    </mat-form-field>
-
-    <button mat-raised-button color="primary">Converter</button>
+    <form [formGroup]="formularioMedida">
+      <mat-form-field appearance="fill" color="primary">
+          <input matInput formControlName="medidaInput" #medidaInput>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="converter(medidaInput.value)">Converter</button>
+    </form>
 </div>

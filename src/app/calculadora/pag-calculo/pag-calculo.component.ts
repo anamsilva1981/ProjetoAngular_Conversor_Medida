@@ -15,4 +15,8 @@ export class PagCalculoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  valorConvertido(medidaDoInput: string){
+    console.log(medidaDoInput);
+  }
+
 }
