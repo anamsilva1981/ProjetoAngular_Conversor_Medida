@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CalculosService } from '../calculos.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,25 @@ export class HomeComponent implements OnInit {
   pesos = ["Grama", "Libra", "Onça", "Kilo "];
   medidas = ["Metro ","Polegadas","Pé","Jardas","Cm"];
 
+  conversorTemperatura = new FormGroup({
+    converterDeTemp: new FormControl([]),
+    converterParaTemp: new FormControl([]),
+  })
+  
+  conversorPeso = new FormGroup({
+    converterDePeso: new FormControl([]),
+    converterParaPeso: new FormControl([]),
+  })
 
-  constructor() { }
+  conversorMedida = new FormGroup({
+    converterDeMedida: new FormControl([]),
+    converterParaMedida: new FormControl([]),
+  })
+
+
+  constructor(
+    private calculosService: CalculosService
+  ) { }
 
   ngOnInit(): void {
     this.temperaturas.sort();
@@ -20,4 +39,13 @@ export class HomeComponent implements OnInit {
     this.medidas.sort();
   }
 
+  converteTemperatura(){
+    // Verificar os valores dos select e enviar via parametro para a rota 
+  }
+  convertePeso(){
+
+  }
+  converteMedida(){
+
+  }
 }
