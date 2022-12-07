@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CalculosService } from '../calculos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +10,21 @@ import { CalculosService } from '../calculos.service';
 export class HomeComponent implements OnInit {
 
   temperaturas = ["Celsius", "Fahrenheit", "Kelvin"];
-  pesos = ["Grama", "Libra", "Onça", "Kilo "];
-  medidas = ["Metro ","Polegadas","Pé","Jardas","Cm"];
+  pesos = ["Grama", "Libra", "Onça", "Kilo"];
+  medidas = ["Metro","Polegadas","Pé","Jardas","Cm"];
+
+  valorConverterDeTemp = '';
+  valorConverterParaTemp = '';
+
+  valorConverterDePeso = '';
+  valorConverterParaPeso = '';
+
+  valorConverterDeMedida = '';
+  valorConverterParaMedida = '';
 
   conversorTemperatura = new FormGroup({
-    converterDeTemp: new FormControl([]),
-    converterParaTemp: new FormControl([]),
+    converterDeTemp: new FormControl(''),
+    converterParaTemp: new FormControl(''),
   })
   
   conversorPeso = new FormGroup({
@@ -30,8 +39,8 @@ export class HomeComponent implements OnInit {
 
 
   constructor(
-    private calculosService: CalculosService
-  ) { }
+    private router: Router
+      ) { }
 
   ngOnInit(): void {
     this.temperaturas.sort();
@@ -40,12 +49,24 @@ export class HomeComponent implements OnInit {
   }
 
   converteTemperatura(){
-    // Verificar os valores dos select e enviar via parametro para a rota 
+    // Pega o valor da temperatura selecionada e envia com um parametro para a rota
+    this.router.navigate(['/calculadora', 
+    this.valorConverterDeTemp, 
+    this.valorConverterParaTemp]
+    )
   }
   convertePeso(){
-
+       // Pega o valor da Peso selecionada e envia com um parametro para a rota
+       this.router.navigate(['/calculadora', 
+       this.valorConverterDePeso, 
+       this.valorConverterParaPeso]
+       )
   }
   converteMedida(){
-
+       // Pega o valor da Medida selecionada e envia com um parametro para a rota
+       this.router.navigate(['/calculadora', 
+       this.valorConverterDeMedida, 
+       this.valorConverterParaMedida]
+       )
   }
 }
