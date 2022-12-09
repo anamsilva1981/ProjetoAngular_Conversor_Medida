@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-6">
-            <app-calculadora [medida]="medida2"></app-calculadora>
+            <app-calculadora [medida]="medida2" (valorParaConverter)="valorConvertido($event)" (click)="valorConvertido(resultado)" ></app-calculadora>
         </div>
         <div class="col-12">
             <button mat-raised-button color="primary" routerLink="/">Voltar</button>
