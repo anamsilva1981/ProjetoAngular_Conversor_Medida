@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CalculosService } from 'src/app/calculos.service';
 
 @Component({
   selector: 'app-pag-calculo',
@@ -12,10 +13,12 @@ export class PagCalculoComponent implements OnInit {
   medida2 = "";
   id1!: string | null;
   id2!: string | null;
+  resultado = "";
   
+  @Output() resultadoConversao = new EventEmitter<string>;
 
+  constructor(private route: ActivatedRoute, private calculoService: CalculosService) {
 
-  constructor(private route: ActivatedRoute) {
    }
 
   ngOnInit() {
@@ -29,7 +32,10 @@ export class PagCalculoComponent implements OnInit {
 
   valorConvertido(medidaDoInput: string){
     console.log(medidaDoInput);
-    
+    this.resultado = this.calculoService.celsiusToKelvin(medidaDoInput);
+    this.resultado = this.resultado.toString();
+    console.log(this.resultado);
+    this.resultadoConversao.emit(this.resultado);
   }
 
 }
