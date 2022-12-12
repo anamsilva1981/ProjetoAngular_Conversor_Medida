@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   temperaturas = ["Celsius", "Fahrenheit", "Kelvin"];
-  pesos = ["Grama", "Libra", "Onça", "Kilo"];
-  medidas = ["Metro","Polegadas","Pé","Jardas","Cm"];
+  pesos = ["Grama", "Libra"];
+  medidas = ["Metro","Polegadas"];
 
   valorConverterDeTemp = '';
   valorConverterParaTemp = '';
