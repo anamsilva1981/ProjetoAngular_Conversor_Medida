@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Medida } from 'src/app/model/medida';
 
 @Component({
   selector: 'app-calculadora',
@@ -8,30 +9,26 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CalculadoraComponent implements OnInit {
 
-  @Input() medida = "";
-  @Input() resultado = "";
+  medida = "";
+  @Input() resultadoConv!: Medida;
 
   formularioMedida = new FormGroup({
     medidaInput: new FormControl('')
   })
 
 
-  @Output() valorParaConverter = new EventEmitter<string>();
+  @Output() resultadoConvChange = new EventEmitter<Medida>();
   constructor() { }
 
-  ngOnInit(): void { }
-
-  converter(medidaDoInput: string){
-    this.valorParaConverter.emit(medidaDoInput);
-    console.log()
+  ngOnInit(): void { 
+    this.medida = this.resultadoConv.tipo
   }
 
-  valorConvertido(resultado: string){
-    this.formularioMedida.patchValue({
-      medidaInput: resultado
-    })
-    this.resultado = resultado;
-    console.log(this.resultado)
-  } 
+  resultadoConversao(medidaDoInput: number){
+    this.resultadoConv = {tipo: this.medida, valor: medidaDoInput};
+    this.resultadoConvChange.emit(this.resultadoConv);
+  }
+
+
 }
 

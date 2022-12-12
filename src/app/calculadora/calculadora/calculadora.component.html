@@ -3,10 +3,9 @@
     <h3>A Medida a Ser Convertida: {{medida}}</h3>
     <form [formGroup]="formularioMedida">
       <mat-form-field appearance="fill" color="primary">
-          <input matInput formControlName="medidaInput" #medidaInput (resultadoConversao)="valorConvertido(resultado)">
-          {{resultado}}
+          <input matInput formControlName="medidaInput" #medidaInput [value]="resultadoConv.valor">
       </mat-form-field>
       <br>
-      <button mat-raised-button color="primary" (click)="converter(medidaInput.value)" >Converter</button>
+      <button mat-raised-button color="primary" (click)="resultadoConversao(+medidaInput.value)">Converter</button>
     </form>
 </div>

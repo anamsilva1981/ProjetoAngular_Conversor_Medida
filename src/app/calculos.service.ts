@@ -4,33 +4,72 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CalculosService {
-  celsiusToKelvin(medidaDoInput: string) {
-    let celsiusKelvin: number;
-    let resultado: string;
-    let converter: number;
-
-    converter = +medidaDoInput;
-    celsiusKelvin = converter + 273.15;
-    resultado = `${celsiusKelvin}`
+  converterValores(medidaDoInput: number, medidaRecebida: string, medidaConvertida: string):number|null {
+   
+    //Temperatura
+    if(medidaRecebida == 'Celsius' && medidaConvertida == 'Kelvin'){
+      let resultado: number;  
+      resultado = medidaDoInput + 273.15;
       return (resultado);
+    }
+
+    if(medidaRecebida == 'Kelvin' && medidaConvertida == 'Celsius'){
+      let resultado: number;  
+      resultado = medidaDoInput - 273.15;
+      return (resultado);
+    }
+  
+    if(medidaRecebida == 'Celsius' && medidaConvertida == 'Fahrenheit'){
+      let resultado: number;  
+      resultado = (medidaDoInput * 9/5)+32;
+      return (resultado);
+    }
+    if(medidaRecebida == 'Fahrenheit' && medidaConvertida == 'Celsius'){
+      let resultado: number;  
+      resultado = (medidaDoInput -32) * 5/9;
+      return (resultado);
+    }
+    if(medidaRecebida == 'Fahrenheit' && medidaConvertida == 'Kelvin'){
+      let resultado: number;  
+      resultado = ((medidaDoInput - 32) * 5/9) + 273.15;
+      return (resultado);
+    }
+    if(medidaRecebida == 'Kelvin' && medidaConvertida == 'Fahrenheit'){
+      let resultado: number;  
+      resultado = ((medidaDoInput - 273.15) * 9/5 ) + 32;
+      return (resultado);
+    }
+
+    //Peso
+    if(medidaRecebida == 'Grama' && medidaConvertida == 'Libra'){
+      let resultado: number;  
+      resultado = medidaDoInput / 453.60;
+      return (resultado);
+    }
+    if(medidaRecebida == 'Libra' && medidaConvertida == 'Grama'){
+      let resultado: number;  
+      resultado = medidaDoInput * 453,60;
+      return (resultado);
+    }
+
+    //Medida
+    if(medidaRecebida == 'Metro' && medidaConvertida == 'Polegadas'){
+      let resultado: number;  
+      resultado = medidaDoInput * 39.37;
+      return (resultado);
+    }
+    if(medidaRecebida == 'Polegadas' && medidaConvertida == 'Metro'){
+      let resultado: number;  
+      resultado = medidaDoInput / 39.37;
+      return (resultado);
+    }
+
+    return (null);
   }
+
+
 
   constructor() { }
 
    }
 
-
-
-
-
-// Efetuar os calculos das conversoes 
-
-// Estudar sobre service, envio e recebimento de informações 
-
-// pagina calculo e Service de Calculo 
-// Na tela da calculadora irá ler a medida da covnersao e enviar para o Pai (pagina de calculo)
-// O pai ira verificar quem enviou e para onde (de celsiu para kenvin ) (verificar botao)
-// Verificar as informaçoes que o service vai receber para converter (as duas medidas e o valor de uma delas )
-// Fazer a alteração de string para number 
-// Service vai calcular de acordo com o que ele recebeu (calculos)
-// Receber o valor de calculo e e informar para o filho no campo vazio 
