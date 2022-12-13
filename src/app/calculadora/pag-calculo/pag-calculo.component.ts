@@ -16,7 +16,7 @@ export class PagCalculoComponent implements OnInit {
   id2!: string | null;
   resultado1: Medida = {tipo: '', valor: 0};
   resultado2: Medida = {tipo: '', valor: 0};
-  
+
 
   constructor(private route: ActivatedRoute, private calculoService: CalculosService) {
    }
@@ -30,19 +30,29 @@ export class PagCalculoComponent implements OnInit {
     }
   }
 
+  ngOnChanges() {
+
+  }
   valorConvertido(medidaDoInput: Medida){
     if(medidaDoInput.tipo == this.resultado1.tipo){
       const resposta = this.calculoService.converterValores(medidaDoInput.valor, this.resultado1.tipo, this.resultado2.tipo);
       if (resposta != null){
-        this.resultado2.valor = resposta;
+        this.resultado2 = {
+          tipo:this.resultado2.tipo,
+          valor: resposta
+        };
       }
     }
     else if (medidaDoInput.tipo == this.resultado2.tipo){
       const resposta = this.calculoService.converterValores(medidaDoInput.valor, this.resultado2.tipo, this.resultado1.tipo);
       if (resposta != null){
-        this.resultado1.valor = resposta;
+        this.resultado1 = {
+          tipo:this.resultado1.tipo,
+          valor: resposta
+        };
       }
     }
   }
+
 
 }
