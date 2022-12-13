@@ -10,6 +10,7 @@ import { Medida } from 'src/app/model/medida';
 export class CalculadoraComponent implements OnInit {
 
   medida = "";
+  valor!:number;
   @Input() resultadoConv!: Medida;
 
   formularioMedida = new FormGroup({
@@ -20,8 +21,9 @@ export class CalculadoraComponent implements OnInit {
   @Output() resultadoConvChange = new EventEmitter<Medida>();
   constructor() { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.medida = this.resultadoConv.tipo
+    this.valor = this.resultadoConv.valor;
   }
 
   resultadoConversao(medidaDoInput: number){

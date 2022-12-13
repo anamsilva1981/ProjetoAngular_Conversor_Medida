@@ -5,6 +5,7 @@
       <mat-form-field appearance="fill" color="primary">
           <input matInput formControlName="medidaInput" #medidaInput [value]="resultadoConv.valor">
       </mat-form-field>
+      {{medida}}
       <br>
       <button mat-raised-button color="primary" (click)="resultadoConversao(+medidaInput.value)">Converter</button>
     </form>
